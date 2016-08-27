@@ -20,6 +20,8 @@
 <link href="/BucketTree/css/login.css" rel="stylesheet" type="text/css" />
 	<!-- SIDEBAR CSS-->
 <link href="/BucketTree/css/sidebar.css" rel="stylesheet" type="text/css" />
+	<!-- CHAT_POPUP -->
+<link href="/BucketTree/css/chat_popup.css" rel="stylesheet" type="text/css" />
 
 <!-- JS -->
 
@@ -28,6 +30,7 @@
 
 	<!-- MENU JS-->
 <script type="text/javascript"	src="/BucketTree/js/menu/modernizr.custom.js"></script>
-
+	<!-- CHAT_POPUP -->
+<script type="text/javascript"	src="/BucketTree/js/chat_popup/chat_popup.js"></script>
 
 

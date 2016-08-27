@@ -12,6 +12,7 @@
 	<definition name="commonLayout" template="/WEB-INF/views/template/template.jsp">
 		<put-attribute name="header" value="/WEB-INF/views/include/header.jsp" />
 		<put-attribute name="menubar" value="/WEB-INF/views/include/menubar.jsp" />
+		<put-attribute name="chat_popup" value="/WEB-INF/views/include/chat_popup.jsp" /> 
 		<put-attribute name="content" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/include/footer.jsp" />
 	</definition>

@@ -11,6 +11,7 @@
 <body>
 	<tiles:insertAttribute name="menubar" />
 	<tiles:insertAttribute name="content" />
+	<tiles:insertAttribute name="chat_popup" />
 	<tiles:insertAttribute name="footer" />
 </body>
 </html>
