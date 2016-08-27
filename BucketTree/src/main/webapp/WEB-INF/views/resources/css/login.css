@@ -41,6 +41,7 @@
 }
 
 .form-module .toggle {
+	display:none;
 	cursor: pointer;
 	position: absolute;
 	top: -0;
@@ -56,44 +57,19 @@
 	padding-top:10px;
 }
 
-.form-module .toggle .tooltip {
-	position: absolute;
-	top: 5px;
-	right: -65px;
-	display: block;
-	background: #888;
-	width: auto;
-	padding: 5px;
-	font-size: 10px;
-	line-height: 1;
-	text-transform: uppercase;
-	opacity:0.8;
-}
-
-.form-module .toggle .tooltip:before {
-	content: '';
-	position: absolute;
-	top: 4px;
-	left: -5px;
-	display: block;
-	border-top: 6px solid transparent;
-	border-bottom: 6px solid transparent;
-	border-right: 6px solid #888;
-}
-
 .form-module .form {
 	display: none;
-	padding: 40px 40px 30px 40px;
+	padding: 40px 40px 20px 40px;
 }
 
 .form-module .form1 {
 	display: none;
-	padding: 40px 40px 30px 40px;
+	padding: 40px 40px 20px 40px;
 }
 
 .form-module .form2 {
 	display: none;
-	padding: 40px 40px 30px 40px;
+	padding: 40px 40px 20px 40px;
 }
 
 .form-module .form:nth-child(2) {
@@ -157,3 +133,22 @@
 	text-decoration: none;
 }
 
+.fpw{
+	font-size:10pt;
+	color:#888;
+	margin-left:50px;
+	padding-top:20px;
+}
+
+#joinus{
+	background-color:#f2f2f2;
+	color:#777;
+	cursor: pointer;
+	width: 100%;
+	border: 0;
+	padding: 10px 15px;
+	-webkit-transition: 0.3s ease;
+	transition: 0.3s ease;
+	margin-top:5px;
+	text-align:center;
+}
