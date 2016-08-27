@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.ac.BucketTree.UserMapper">
+	
+	<!-- 유저 전체 목록 -->
+	<select id="selectByEmail" resultType="kr.ac.BucketTree.vo.UserVO">
+		SELECT * 
+		FROM [USER]
+		WHERE EMAIL =#{email}
+	</select>
+</mapper>
