@@ -1,8 +1,0 @@
-package kr.ac.BucketTree.service;
-
-import java.util.List;
-import kr.ac.BucketTree.vo.FriendVO;
-
-public interface FriendService {
-	public List<FriendVO> FriendByNewMessagener(int idx) ;
-}

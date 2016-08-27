@@ -1,8 +1,0 @@
-package kr.ac.BucketTree.vo;
-
-public class FriendVO {
-	int idx;
-	String name;
-	String birth;
-	
-}

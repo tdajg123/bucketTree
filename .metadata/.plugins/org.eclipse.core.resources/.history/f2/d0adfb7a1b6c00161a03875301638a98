@@ -1,9 +1,0 @@
-package kr.ac.BucketTree.dao;
-
-import java.util.List;
-
-import kr.ac.BucketTree.util.Pagination;
-
-public interface FriendDAO {
-	public List FriendByMessagener(int idx,Pagination p);
-}
