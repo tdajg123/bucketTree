@@ -1,0 +1,23 @@
+package kr.ac.BucketTree.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import kr.ac.BucketTree.dao.FriendDAO;
+import kr.ac.BucketTree.service.FriendService;
+import kr.ac.BucketTree.vo.FriendVO;
+
+@Service
+public class FriendServiceimpl implements FriendService{
+	@Autowired
+	FriendDAO dao;
+	
+	@Override
+	public List<FriendVO> FriendByNewMessagener(int idx) {
+		// TODO Auto-generated method stub
+		return dao.FriendByNewMessagener(idx);
+	}
+
+}

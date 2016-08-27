@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.ac.BucketTree.FriendMapper">
+
+	<select id="FriendByMessagener">
+		SELECT u.idx, u.name, u.birth
+		FROM Friend f join [User] u
+		on f.toUser=u.idx
+		where (f.fromUser=14 and f.state=1) AND 
+		( @srchType=0 OR (@srchType=1 AND CHARINDEX(@srchText,f.toUser)>1))
+		and u.idx not IN (SELECT u.idx
+		FROM [USER] u
+		WHERE u.idx IN(
+		SELECT from_user_idx
+		FROM Messenger
+		WHERE to_user_idx =14 and type=1
+		)
+		)
+	</select>
+</mapper>

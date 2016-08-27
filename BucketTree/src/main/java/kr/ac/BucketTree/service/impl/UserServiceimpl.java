@@ -22,7 +22,8 @@ public class UserServiceimpl implements UserService {
 		// TODO Auto-generated method stub
 		return dao.selectByEmail(email);
 	}
-
+	
+	//로그인 유저 정보 꺼내오기
 	@Override
 	public UserVO getCurrentUser() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -30,7 +31,8 @@ public class UserServiceimpl implements UserService {
 			return ((MyAuthenticationProvider.MyAuthenticaion) authentication).getUser();
 		return null;
 	}
-
+	
+	//개인정보 변경후 세션에 로그인정보 변경하기
 	@Override
 	public void setCurrentUser(UserVO user) {
 		((MyAuthenticationProvider.MyAuthenticaion) SecurityContextHolder.getContext().getAuthentication())

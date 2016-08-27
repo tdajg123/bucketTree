@@ -1,0 +1,5 @@
+package kr.ac.BucketTree.dao.impl;
+
+public class FriendDAOimpl implements FriendDAO{
+
+}

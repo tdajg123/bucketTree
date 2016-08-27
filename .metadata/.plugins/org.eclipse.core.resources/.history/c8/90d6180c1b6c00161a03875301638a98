@@ -1,0 +1,7 @@
+package kr.ac.BucketTree.util;
+
+public class Pagination {
+	int srchType;
+	String srchText;
+
+}
