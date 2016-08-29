@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM Friend f join [User] u
 		on f.toUser=u.idx
 		where (f.fromUser=#{idx} and f.state=1) AND 
-		( #{p.srchType}=0 OR (#{srchType}=1 AND CHARINDEX(#{p.srchText},f.toUser)>1))
+		( #{p.srchType}=0 OR (#{p.srchType}=1 AND CHARINDEX(#{p.srchText},u.name) =1))
 		and u.idx not IN (SELECT u.idx FROM [USER] u   
 		                 WHERE u.idx IN(
 		                 SELECT from_user_idx

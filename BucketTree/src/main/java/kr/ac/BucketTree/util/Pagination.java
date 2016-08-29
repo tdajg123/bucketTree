@@ -7,7 +7,7 @@ public class Pagination {
 	public Pagination()
 	{
 		srchType=0;
-		srchText=null;
+		srchText="";
 	}
 	public int getSrchType() {
 		return srchType;

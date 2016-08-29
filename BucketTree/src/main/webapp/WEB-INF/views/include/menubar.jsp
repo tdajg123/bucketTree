@@ -92,7 +92,7 @@
 	<div class="box box-solid box-default">
 		<div class="box-header">
 			<div class="input-group">
-				<input name="q" class="form-control" type="text"> <span
+				<input name="q" class="form-control friend_search search" type="text"> <span
 					class="input-group-btn">
 					<button type="submit" name="search" id="search-btn"
 						class="btn btn-flat">
@@ -102,10 +102,10 @@
 			</div>
 		</div>
 		<!-- /.box-header -->
-		<div class="box-list">
+		<div class="box-list MessengerFriendList">
 			<!--새로운 메세지를 보낸 친구 목록-->
 			<c:forEach var="friend" items="${flist1}">
-				<div class="box-body addClass">
+				<div class="box-body addClass newMessenegeFriend">
 					<img src="/BucketTree/images/user1-128x128.jpg" class="user-image"
 						alt="User Image">
 					<h4>${friend.name}
@@ -116,7 +116,7 @@
 			
 			<!--메신저에서 쓸 친구 목록(새로운메세지 보낸 친구 제외)  --> 
 			<c:forEach var="friend" items="${flist2}">
-				<div class="box-body addClass">
+				<div class="box-body addClass MessenegerFriend">
 					<img src="/BucketTree/images/user1-128x128.jpg" class="user-image"
 						alt="User Image">
 					<h4>${friend.name}</h4>
@@ -166,3 +166,54 @@
 </script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	
+<!--메신저 친구검색  -->
+<script>
+$(function() {
+	//검색창에 키를 누른후 이벤트발생
+	$('.friend_search').keyup(function( event ) {
+	//친구 목록삭제
+	$('.MessenegerFriend').detach();
+	//srchType=0
+	var srchType=0;
+	//srchText 값가져오기	
+	var srchText=$('.search').val();
+	//srchText빈문자열이면 srchType=0;
+	if(srchText == 0)
+	{
+		srchType=0;
+	}
+	//그이외에는 srchType=1;
+	else
+	{
+	    srchType=1;
+	}
+	//객체에 담기
+	var allData = {srchType: srchType,srchText: srchText };
+	//ajax구현	  
+		$.ajax({
+	           url : "/BucketTree/Friend/MessengerFriendList",    
+	           dataType : "json",
+	           type : "POST",   
+	           data : allData ,
+	           success : function(data) {
+	        	  
+	        	     $.each(data, function(entryIndex, entry) {
+	        	    	$('.MessengerFriendList').append("<div class='box-body addClass MessenegerFriend'>");
+	        	    	$('.MessengerFriendList').append("</div>");
+	        	    	$('.MessenegerFriend:last').append("<img src='/BucketTree/images/user1-128x128.jpg' class='user-image' alt='User Image'>");
+	        			$('.MessenegerFriend:last').append("<h4>"+entry.name+"</h4>");
+	                });
+	           }
+	       });
+		
+	});
+	
+
+
+	
+	
+
+});
+</script>

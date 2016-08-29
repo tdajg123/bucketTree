@@ -37,5 +37,8 @@ public class BucketListController {
 		model.addAttribute("flist2", flist2);
 		return "bucketList/list";
 	}
+	
+	
+
 
 }
