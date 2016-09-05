@@ -27,4 +27,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		PASSWORD=#{password}
 		WHERE EMAIL = #{email}
 	</update>
+	
+		<!-- 이메일 중복 체크 -->
+	<select id="checkEmail" resultType="int" parameterType="string">
+		SELECT COUNT(1)
+		FROM [USER]
+		WHERE EMAIL =#{create_email}
+	
+	</select>
+	<insert id="insertUser">
+	INSERT INTO [USER](email,password,name,birth,type,point) 
+	values(#{email},#{password},#{name},#{birth},'일반',0) 
+	
+	
+	</insert>
 </mapper>

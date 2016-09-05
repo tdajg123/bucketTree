@@ -32,3 +32,5 @@
 <script src="/BucketTree/js/sidebar/sidebar.js"></script>
 <!-- CHAT-->
 <script type="text/javascript"	src="/BucketTree/js/chat/chat.js"></script>
+<!-- FRIREND LIST -->
+<link href="/BucketTree/css/friendlist.css" rel="stylesheet" type="text/css" />

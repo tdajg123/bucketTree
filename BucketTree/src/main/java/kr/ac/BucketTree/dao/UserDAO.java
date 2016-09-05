@@ -12,4 +12,9 @@ public interface UserDAO {
 
 	// 임시비밀번호로 비밀번호변경
 	public void changePassword(HashMap<String, Object> paramMap);
+	
+	//사용자 등록
+	public int insertUser(UserVO user);
+	//이메일 중복체크
+	public boolean checkEmail(String create_email);
 }

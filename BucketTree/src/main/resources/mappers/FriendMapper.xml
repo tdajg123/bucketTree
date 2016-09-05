@@ -28,4 +28,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     WHERE to_user_idx =#{idx} and type=1
     )
 	</select>
+	
+	<!-- 검색된 친구목록 -->
+	<select id="FriendSearch" resultType="kr.ac.BucketTree.vo.FriendVO">
+		SELECT* 
+		FROM(
+		SELECT * ,ROW_NUMBER() OVER(ORDER BY [User].name) as row
+		FROM [User]
+		where ((#{srchType}=1 AND name like #{srchText}) OR (#{srchType}=2 AND email = #{srchText}))
+		)subquery
+		<![CDATA[
+		WHERE row > (#{currentPage} - 1) * #{pageSize} AND row <= #{currentPage} * #{pageSize} 
+		]]>
+		ORDER BY row
+	</select>
+	
+	<select id="FriendAjaxSearch" resultType="kr.ac.BucketTree.vo.FriendVO">
+		SELECT* 
+		FROM(
+		
+		SELECT * ,ROW_NUMBER() OVER(ORDER BY [User].name) as row
+		FROM [User]
+		where ((#{srchType}=1 AND name like #{srchText}) OR (#{srchType}=2 AND email = #{srchText}))
+		)subquery
+		<![CDATA[
+		WHERE row > (#{currentPage} - 1) * #{pageSize} AND row <= #{currentPage} * #{pageSize} 
+		]]>
+		ORDER BY row	
+	</select>
 </mapper>

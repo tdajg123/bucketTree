@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import kr.ac.BucketTree.dao.FriendDAO;
 import kr.ac.BucketTree.util.Pagination;
 import kr.ac.BucketTree.vo.FriendVO;
+import kr.ac.BucketTree.vo.PageVO;
 
 @Repository
 public class FriendDAOimpl implements FriendDAO{
@@ -28,6 +29,15 @@ public class FriendDAOimpl implements FriendDAO{
 	public List<FriendVO> FriendByNewMessagener(int idx) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList(namespace+".FriendByNewMessagener", idx) ;
+	}
+	
+	@Override
+	public List<FriendVO> FriendSearch(PageVO page){
+		return sqlSession.selectList(namespace+".FriendSearch",page);
+	}
+	@Override
+	public List<FriendVO> FriendAjaxSearch(Integer startRow){
+		return sqlSession.selectList(namespace+".FriendAjaxSearch",startRow);
 	}
 
 }

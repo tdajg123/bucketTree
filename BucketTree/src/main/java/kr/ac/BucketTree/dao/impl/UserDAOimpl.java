@@ -36,5 +36,14 @@ public class UserDAOimpl implements UserDAO {
 	public void changePassword(HashMap<String, Object> paramMap) {
 		sqlSession.update(namespace + ".updatePassword", paramMap);
 	}
-
+	
+	@Override
+	public int insertUser(UserVO user){
+		return sqlSession.insert(namespace+".insertUser", user);
+	}
+	@Override
+	public boolean checkEmail(String create_email){
+		int count = sqlSession.selectOne(namespace+".checkEmail",create_email);
+		return count > 0;
+	}
 }
