@@ -26,9 +26,11 @@ public class UserServiceimpl implements UserService {
 	//로그인 유저 정보 꺼내오기
 	@Override
 	public UserVO getCurrentUser() {
+
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		if (authentication instanceof MyAuthenticationProvider.MyAuthenticaion)
+		if (authentication instanceof MyAuthenticationProvider.MyAuthenticaion){
 			return ((MyAuthenticationProvider.MyAuthenticaion) authentication).getUser();
+		}
 		return null;
 	}
 	
@@ -38,6 +40,12 @@ public class UserServiceimpl implements UserService {
 		((MyAuthenticationProvider.MyAuthenticaion) SecurityContextHolder.getContext().getAuthentication())
 				.setUser(user);
 
+	}
+
+	@Override
+	public UserVO selectByIdx(int idx) {
+		// TODO Auto-generated method stub
+		return dao.selectByIdx(idx);
 	}
 
 }

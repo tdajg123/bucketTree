@@ -80,6 +80,7 @@
 
 .cbp-spmenu-right.cbp-spmenu-open {
 	right: 0px;
+	z-index:1002;
 }
 
 /* Horizontal menu that slides from the top or bottom */
@@ -272,3 +273,34 @@ h4 > .badge {
     border: 1px solid #48cfc8 !important;
     color: #fff;
 }
+.box-body.addClass  p{
+   font-size:10px;
+   color:#ccc;
+}
+.chat_info{
+   margin-top:10px;
+}
+
+.chat_name{
+   font-size:10pt;
+}
+
+
+/* 다른사람과 대화중이거나 채팅창만 활성화했을경우 새로운 메세지 왔다고 알림  css */
+/* modal */
+.modal{
+	position:absolute;
+	top:200px;
+}
+
+.modal-header{
+      background-color: #48cfc8;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+      font-weight:bold;
+  }
+  .modal-footer {
+      background-color: #f9f9f9;
+  }
+  

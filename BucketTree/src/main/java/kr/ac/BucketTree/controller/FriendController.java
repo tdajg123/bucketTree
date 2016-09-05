@@ -21,17 +21,28 @@ public class FriendController {
 	@Autowired
 	UserService us;
 	
-	
-	// 메신저 친구목록 검색
+	//메신저 친구목록 검색(새로운 메세지 제외)
 	@ResponseBody
 	@RequestMapping(value = "/Friend/MessengerFriendList", method = RequestMethod.POST)
 	public List<FriendVO> srchTextByMessengerFriendList(Pagination p) {
-
 		// 유저 정보가져오기
 		UserVO user = us.getCurrentUser();
 		// 검색에 따른 친구 목록
 		List<FriendVO> list = fs.FriendByMessagener(user.getIdx(), p);
-
 		return list;
 	}
+	
+	//새로운 메신저 온거 갱신
+	@ResponseBody
+	@RequestMapping(value = "/Friend/NewMessengerFriendList", method = RequestMethod.POST)
+	public List<FriendVO> NewMessengerFriendList()
+	{
+		// 유저 정보가져오기
+		UserVO user = us.getCurrentUser();
+		
+		return fs.FriendByNewMessagener(user.getIdx());
+	}
+	
+	
+
 }

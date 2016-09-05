@@ -282,6 +282,7 @@ body
     margin-top: -5px;
 }
 .popup-messages .direct-chat-text-send {
+	width: 230px;
     background: #ffe3e6 none repeat scroll 0 0;
     border: 1px solid #dfece7;
     border-radius: 2px;

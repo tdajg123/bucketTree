@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<script type="text/javascript"src="/BucketTree/js/menu/jquery.dlmenu.js"></script>
+<script type="text/javascript" src="/BucketTree/js/menu/menu.js"></script>
 
 <nav id="header" class="navbar navbar-fixed-top">
-
 	<!-- /.container -->
-
 	<div id="header-container" class="container navbar-container">
 
 
@@ -61,8 +61,8 @@
 							<li><a href="/BucketTree/mypage"><i
 									class="fa fa-fw fa-gear"></i> 정보관리</a></li>
 							<li class="divider"></li>
-							<li><a href="#"><i class="fa fa-fw fa-power-off"></i>
-									로그아웃</a></li>
+							<li><a href="/BucketTree/logout"><i
+									class="fa fa-fw fa-power-off"></i> 로그아웃</a></li>
 						</ul></li>
 				</ul>
 				<ul class="nav navbar-left">
@@ -92,8 +92,8 @@
 	<div class="box box-solid box-default">
 		<div class="box-header">
 			<div class="input-group">
-				<input name="q" class="form-control friend_search search" type="text"> <span
-					class="input-group-btn">
+				<input name="q" class="form-control friend_search search"
+					type="text"> <span class="input-group-btn">
 					<button type="submit" name="search" id="search-btn"
 						class="btn btn-flat">
 						<i class="fa fa-search"></i>
@@ -105,35 +105,56 @@
 		<div class="box-list MessengerFriendList">
 			<!--새로운 메세지를 보낸 친구 목록-->
 			<c:forEach var="friend" items="${flist1}">
-				<div class="box-body addClass newMessenegeFriend">
+				<div class="box-body addClass newMessenegerFriend"
+					data-id="${friend.idx}">
 					<img src="/BucketTree/images/user1-128x128.jpg" class="user-image"
 						alt="User Image">
-					<h4>${friend.name}
-						<span class="badge bg-green">NEW</span>
-					</h4>
+					<div class="chat_info">
+						<span class="chat_name">${friend.name} </span> <span
+							class="badge bg-green right">NEW</span>
+						<p>${friend.email}</p>
+					</div>
 				</div>
 			</c:forEach>
-			
-			<!--메신저에서 쓸 친구 목록(새로운메세지 보낸 친구 제외)  --> 
-			<c:forEach var="friend" items="${flist2}">
-				<div class="box-body addClass MessenegerFriend">
-					<img src="/BucketTree/images/user1-128x128.jpg" class="user-image"
-						alt="User Image">
-					<h4>${friend.name}</h4>
-				</div>
-			</c:forEach>
-		</div>
-	
-	</div>
 
+			<!--메신저에서 쓸 친구 목록(새로운메세지 보낸 친구 제외)  -->
+			<c:forEach var="friend" items="${flist2}">
+				<div class="box-body addClass MessenegerFriend"
+					data-id="${friend.idx}">
+					<img src="/BucketTree/images/user1-128x128.jpg" class="user-image"
+						alt="User Image">
+					<div class="chat_info">
+						<span class="chat_name">${friend.name} </span>
+						<p>${friend.email}</p>
+					</div>
+				</div>
+			</c:forEach>
+		
+			
+		</div>
+
+	</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="message_modal" role="dialog"  style="z-index: 999999;">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header" style="padding: 15px 50px;">
+			</div>
+			<div class="modal-body" style="padding: 40px 50px;">
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-default" data-dismiss="modal">
+					<span class="fa fa-check"></span> 확인
+				</button>
+			</div>
+		</div>
+	</div>
 </div>
 
 
-<!-- JS -->
-<!-- MENU -->
-<script type="text/javascript" src="/BucketTree/js/menu/menu.js"></script>
-<script type="text/javascript"
-	src="/BucketTree/js/menu/jquery.dlmenu.js"></script>
+
 <script>
 	$(function() {
 		$('#dl-menu-1').dlmenu();
@@ -144,9 +165,7 @@
 	$(function() {
 		$('#dl-menu-3').dlmenu();
 	});
-</script>
-<script src="/BucketTree/js/sidebar/sidebar.js"></script>
-<script>
+
 	var menuRight = document.getElementById('cbp-spmenu-s2'), showRight = document
 			.getElementById('showRight'), body = document.body;
 
@@ -157,63 +176,25 @@
 	};
 
 	function disableOther(button) {
-
 		if (button !== 'showRight') {
 			classie.toggle(showRight, 'disabled');
 		}
 
 	}
+    $(function() {
+
+        $('#showRight').click(function() {
+
+            if ($('#cbp-spmenu-s2').hasClass('cbp-spmenu-open')) {
+                messenger.from_user_idx = ${user.idx};
+                connect();
+
+            }
+            if ($('#cbp-spmenu-s2').hasClass('cbp-spmenu-open') == false) {
+                disconnect();
+            }
+
+        });
+	 }); 
 </script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
-	
-<!--메신저 친구검색  -->
-<script>
-$(function() {
-	//검색창에 키를 누른후 이벤트발생
-	$('.friend_search').keyup(function( event ) {
-	//친구 목록삭제
-	$('.MessenegerFriend').detach();
-	//srchType=0
-	var srchType=0;
-	//srchText 값가져오기	
-	var srchText=$('.search').val();
-	//srchText빈문자열이면 srchType=0;
-	if(srchText == 0)
-	{
-		srchType=0;
-	}
-	//그이외에는 srchType=1;
-	else
-	{
-	    srchType=1;
-	}
-	//객체에 담기
-	var allData = {srchType: srchType,srchText: srchText };
-	//ajax구현	  
-		$.ajax({
-	           url : "/BucketTree/Friend/MessengerFriendList",    
-	           dataType : "json",
-	           type : "POST",   
-	           data : allData ,
-	           success : function(data) {
-	        	  
-	        	     $.each(data, function(entryIndex, entry) {
-	        	    	$('.MessengerFriendList').append("<div class='box-body addClass MessenegerFriend'>");
-	        	    	$('.MessengerFriendList').append("</div>");
-	        	    	$('.MessenegerFriend:last').append("<img src='/BucketTree/images/user1-128x128.jpg' class='user-image' alt='User Image'>");
-	        			$('.MessenegerFriend:last').append("<h4>"+entry.name+"</h4>");
-	                });
-	           }
-	       });
-		
-	});
-	
 
-
-	
-	
-
-});
-</script>

@@ -1,6 +1,6 @@
 package kr.ac.BucketTree.dao.impl;
 
-import javax.inject.Inject;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -22,6 +22,12 @@ public class UserDAOimpl implements UserDAO {
 	public UserVO selectByEmail(String email) {
 		
 		return sqlSession.selectOne(namespace+".selectByEmail", email);
+	}
+
+	@Override
+	public UserVO selectByIdx(int idx) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace+".selectByIdx", idx);
 	}
 
 }

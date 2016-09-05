@@ -6,10 +6,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="kr.ac.BucketTree.UserMapper">
 	
-	<!-- 유저 전체 목록 -->
+	<!-- 이메일로 유저 찾기 -->
 	<select id="selectByEmail" resultType="kr.ac.BucketTree.vo.UserVO">
 		SELECT * 
 		FROM [USER]
 		WHERE EMAIL =#{email}
+	</select>
+	
+	<!-- idx로 유저찾기 -->
+	<select id="selectByIdx" resultType="kr.ac.BucketTree.vo.UserVO">
+		SELECT * 
+		FROM [USER]
+		WHERE idx =#{idx}
 	</select>
 </mapper>
