@@ -23,4 +23,9 @@ public interface UserService {
 	// 임시 비밀번호로 변경
 	public void updatePassword(String password, String email);
 	// 비밀번호 찾기---------------
+	
+	//사용자 등록
+	public int insertUser(UserVO user);
+	
+	public boolean checkEmail(String create_email);
 }

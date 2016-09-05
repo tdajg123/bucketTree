@@ -91,7 +91,13 @@ public class UserServiceimpl implements UserService {
 		dao.changePassword(hash);
 
 	}
-
+	@Override
+	public int insertUser(UserVO user){
+		return dao.insertUser(user);
+	}
 	// 비밀번호 찾기---------------
-
+	@Override
+	public boolean checkEmail(String create_email){
+		return this.dao.checkEmail(create_email);
+	}
 }

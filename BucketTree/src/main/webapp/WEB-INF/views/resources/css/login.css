@@ -33,7 +33,7 @@
 	z-index:1000;
 	position: relative;
 	background: #ffffff;
-	max-width: 320px;
+	max-width: 380px;
 	width: 100%;
 	border-top: 5px solid #48cfc8;
 	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
@@ -152,3 +152,8 @@
 	margin-top:5px;
 	text-align:center;
 }
+#create_pw2{
+	margin-top:20px;
+	
+}
+.g-recaptcha { margin-bottom:10px}

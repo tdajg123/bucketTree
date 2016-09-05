@@ -9,6 +9,7 @@ import kr.ac.BucketTree.dao.FriendDAO;
 import kr.ac.BucketTree.service.FriendService;
 import kr.ac.BucketTree.util.Pagination;
 import kr.ac.BucketTree.vo.FriendVO;
+import kr.ac.BucketTree.vo.PageVO;
 
 @Service
 public class FriendServiceimpl implements FriendService{
@@ -24,6 +25,16 @@ public class FriendServiceimpl implements FriendService{
 	public List<FriendVO> FriendByNewMessagener(int idx) {
 		
 		return dao.FriendByNewMessagener(idx);
+	}
+	
+	@Override
+	public List<FriendVO> FriendSearch(PageVO page){
+		
+		return dao.FriendSearch(page);
+	}
+	@Override
+	public List<FriendVO> FriendAjaxSearch(Integer startRow){
+		return dao.FriendAjaxSearch(startRow);
 	}
 
 }
