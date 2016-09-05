@@ -77,6 +77,7 @@
 	<!-- JS  -->
 	<script>
 		$('#search').click(function() {
+
 			$.ajax({
 				url : "/BucketTree/user/searchUserAjax",
 				dataType : "json",
