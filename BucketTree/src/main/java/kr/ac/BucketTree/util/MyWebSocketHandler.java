@@ -36,7 +36,6 @@ public class MyWebSocketHandler extends TextWebSocketHandler {
 		super.afterConnectionEstablished(session);
 		//로그인 유저 웹소켓 연결
 		UserVO user = getUser(session);
-		System.out.println(user.getIdx());
 		sessions.put(user.getIdx(), session);
 
 	}
