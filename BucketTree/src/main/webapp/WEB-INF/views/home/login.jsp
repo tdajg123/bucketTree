@@ -30,173 +30,204 @@
 					id="login_pw" type="password" placeholder="Password" />
 				<button>Login</button>
 				<div id="joinus">JOIN US</div>
-			<div class="fpw">Forgot your password?</div>
+				<div class="fpw">Forgot your password?</div>
 			</form>
 		</div>
 
-			<!-- 회원가입부분  -->
-	<div class="form1">
-		<h2>CREATE AN ACCOUNT</h2>
-		<form> 
-			<input id="create_email" name="create_email" type="email" placeholder="Email Address" /> 
-			<input id="create_pw" name="create_pw" type="password" placeholder="Password" /> 
-			<input id="create_name" name="create_name" type="text"	placeholder="Username" /> 
-			<input id="create_email" name="create_email" type="date" placeholder="BIRTH DAY" />
-			<button id="register">Register</button>
-		</form>
+		<!-- 회원가입부분  -->
+		<div class="form1">
+			<h2>CREATE AN ACCOUNT</h2>
+			<form>
+				<input id="create_email" name="create_email" type="email"
+					placeholder="Email Address" /> <input id="create_pw"
+					name="create_pw" type="password" placeholder="Password" /> <input
+					id="create_name" name="create_name" type="text"
+					placeholder="Username" /> <input id="create_email"
+					name="create_email" type="date" placeholder="BIRTH DAY" />
+				<button id="register">Register</button>
+			</form>
+		</div>
+
+		<!-- 비밀번호찾기부분  -->
+		<div class="form2">
+			<h2>FORGOT PASSWORD</h2>
+			<form method="post">
+				<input id="password_email" name="password_email" type="email"
+					placeholder="Email Address" /> <input id="password_name"
+					name="password_name" type="text" placeholder="Name" />
+				<button type="button" id="search">Search</button>
+			</form>
+		</div>
+
+		<!-- 누르면 비밀번호 찾기로 넘어가는 부분  -->
+		<div class="cta">
+			<div id="result"></div>
+		</div>
 	</div>
-	
-	<!-- 비밀번호찾기부분  -->
-	<div class="form2">
-		<h2>FIND PASSWORD</h2>
-			<input id="password_email" name="password_email" type="email" placeholder="Email Address" /> 
-			<button id="find">Search</button>
-	</div>
-	
-	<!-- 누르면 비밀번호 찾기로 넘어가는 부분  -->
-	<div class="cta">
-		<a class="al"></a>
-	</div>
-</div>
 
 
-<!-- JS  -->
-<script>
-<!-- 회원가입  -->
+	<!-- JS  -->
+	<script>
+		$('#search').click(function() {
 
-$('.toggle').attr('on','false');
-$('.form').attr('on','true');
-$('.form1').attr('on','false');
-$('.form2').attr('on','false');
+			$.ajax({
+				url : "/BucketTree/user/searchUserAjax",
+				dataType : "json",
+				type : "POST",
+				data : {
+					password_email : $('#password_email').val(),
+					password_name : $('#password_name').val()
+				},
+				success : function(data) {
+					if (data) {
+						$('#result').text("이메일로 임시비밀번호를 보냈습니다.")
+					} else {
+						$('#result').text("유효하지않은 이메일입니다.")
+					}
+				}
+			});
+		});
 
-$('.toggle').click(function() {	
+		//회원가입
+		$('.toggle').attr('on', 'false');
+		$('.form').attr('on', 'true');
+		$('.form1').attr('on', 'false');
+		$('.form2').attr('on', 'false');
 
-	$('.toggle').attr('on','true');
-	
-	if( $('.form').attr('on')=='false'&&$('.form1').attr('on')=='true') {
-		$('.form1').animate({
-			height : "toggle",
-			'padding-top' : 'toggle',
-			'padding-bottom' : 'toggle',
-			opacity : "toggle"
-		}, "slow");
-		$('.form').animate({
-			height : "toggle",
-			'padding-top' : 'toggle',
-			'padding-bottom' : 'toggle',
-			opacity : "toggle"
-		}, "slow");
-		
-		$('.form').attr('on','true');
-		$('.form1').attr('on','false');
+		$('.toggle').click(
+				function() {
 
-	}
-	
-	if( $('.form').attr('on')=='false'&&$('.form2').attr('on')=='true') {
-		$('.form2').animate({
-			height : "toggle",
-			'padding-top' : 'toggle',
-			'padding-bottom' : 'toggle',
-			opacity : "toggle"
-		}, "slow");
-		$('.form').animate({
-			height : "toggle",
-			'padding-top' : 'toggle',
-			'padding-bottom' : 'toggle',
-			opacity : "toggle"
-		}, "slow");
-		
-		$('.form').attr('on','true');
-		$('.form2').attr('on','false');
+					$('.toggle').attr('on', 'true');
+					$('#result').text("");
 
-	}
-	
-	if( $('.toggle').attr('on')=='true') {
-		$('.toggle').animate({
-			height : "toggle",
-			'padding-top' : 'toggle',
-			'padding-bottom' : 'toggle',
-			opacity : "toggle"
-		}, "slow");
-	}
+					if ($('.form').attr('on') == 'false'
+							&& $('.form1').attr('on') == 'true') {
+						$('.form1').animate({
+							height : "toggle",
+							'padding-top' : 'toggle',
+							'padding-bottom' : 'toggle',
+							opacity : "toggle"
+						}, "slow");
+						$('.form').animate({
+							height : "toggle",
+							'padding-top' : 'toggle',
+							'padding-bottom' : 'toggle',
+							opacity : "toggle"
+						}, "slow");
 
-	
-});
+						$('.form').attr('on', 'true');
+						$('.form1').attr('on', 'false');
 
-$('#joinus').click(function() {	
-	$('.toggle').attr('on','false');
-	
-	if( $('.toggle').attr('on')=='false') {
-		$('.toggle').animate({
-			height : "toggle",
-			'padding-top' : 'toggle',
-			'padding-bottom' : 'toggle',
-			opacity : "toggle"
-		}, "slow");
+					}
 
-	}
-	
-	$('.form').attr('on','false');
-	$('.form1').attr('on','true');
-	
-	if( $('.form').attr('on')=='false'&& $('.form1').attr('on')=='true') {
-		$('.form').animate({
-			height : "toggle",
-			'padding-top' : 'toggle',
-			'padding-bottom' : 'toggle',
-			opacity : "toggle"
-		}, "slow");
-		$('.form1').animate({
-			height : "toggle",
-			'padding-top' : 'toggle',
-			'padding-bottom' : 'toggle',
-			opacity : "toggle"
-		}, "slow");
-		
-	}
-	
-});
-//비밀번호찾기
-$('.fpw').click(function() {
-	$('.toggle').attr('on','false');
+					if ($('.form').attr('on') == 'false'
+							&& $('.form2').attr('on') == 'true') {
+						$('.form2').animate({
+							height : "toggle",
+							'padding-top' : 'toggle',
+							'padding-bottom' : 'toggle',
+							opacity : "toggle"
+						}, "slow");
+						$('.form').animate({
+							height : "toggle",
+							'padding-top' : 'toggle',
+							'padding-bottom' : 'toggle',
+							opacity : "toggle"
+						}, "slow");
 
-	if( $('.toggle').attr('on')=='false') {
-		$('.toggle').animate({
-			height : "toggle",
-			'padding-top' : 'toggle',
-			'padding-bottom' : 'toggle',
-			opacity : "toggle"
-		}, "slow");
+						$('.form').attr('on', 'true');
+						$('.form2').attr('on', 'false');
 
-	}
-	
-	$('.form').attr('on','false');
-	$('.form2').attr('on','true');
-	
-	if( $('.form').attr('on')=='false'&& $('.form2').attr('on')=='true') {
-		$('.form').animate({
-			height : "toggle",
-			'padding-top' : 'toggle',
-			'padding-bottom' : 'toggle',
-			opacity : "toggle"
-		}, "slow");
-		$('.form2').animate({
-			height : "toggle",
-			'padding-top' : 'toggle',
-			'padding-bottom' : 'toggle',
-			opacity : "toggle"
-		}, "slow");
+					}
 
-	}
-	
-	
+					if ($('.toggle').attr('on') == 'true') {
+						$('.toggle').animate({
+							height : "toggle",
+							'padding-top' : 'toggle',
+							'padding-bottom' : 'toggle',
+							opacity : "toggle"
+						}, "slow");
+					}
 
-});
+				});
 
-$('#find').click(function(){
-	$('.al').attr('.al');
-});
+		$('#joinus').click(
+				function() {
+					$('.toggle').attr('on', 'false');
+					$('#result').text("");
 
-</script>
+					if ($('.toggle').attr('on') == 'false') {
+						$('.toggle').animate({
+							height : "toggle",
+							'padding-top' : 'toggle',
+							'padding-bottom' : 'toggle',
+							opacity : "toggle"
+						}, "slow");
+
+					}
+
+					$('.form').attr('on', 'false');
+					$('.form1').attr('on', 'true');
+
+					if ($('.form').attr('on') == 'false'
+							&& $('.form1').attr('on') == 'true') {
+						$('.form').animate({
+							height : "toggle",
+							'padding-top' : 'toggle',
+							'padding-bottom' : 'toggle',
+							opacity : "toggle"
+						}, "slow");
+						$('.form1').animate({
+							height : "toggle",
+							'padding-top' : 'toggle',
+							'padding-bottom' : 'toggle',
+							opacity : "toggle"
+						}, "slow");
+
+					}
+
+				});
+		//비밀번호찾기
+		$('.fpw').click(
+				function() {
+					$('.toggle').attr('on', 'false');
+					$('#result').text("");
+
+					if ($('.toggle').attr('on') == 'false') {
+						$('.toggle').animate({
+							height : "toggle",
+							'padding-top' : 'toggle',
+							'padding-bottom' : 'toggle',
+							opacity : "toggle"
+						}, "slow");
+
+					}
+
+					$('.form').attr('on', 'false');
+					$('.form2').attr('on', 'true');
+
+					if ($('.form').attr('on') == 'false'
+							&& $('.form2').attr('on') == 'true') {
+						$('.form').animate({
+							height : "toggle",
+							'padding-top' : 'toggle',
+							'padding-bottom' : 'toggle',
+							opacity : "toggle"
+						}, "slow");
+						$('.form2').animate({
+							height : "toggle",
+							'padding-top' : 'toggle',
+							'padding-bottom' : 'toggle',
+							opacity : "toggle"
+						}, "slow");
+
+					}
+
+				});
+
+		$('#find').click(function() {
+			$('.al').attr('.al');
+		});
+	</script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 package kr.ac.BucketTree.dao.impl;
 
+import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,25 +10,31 @@ import kr.ac.BucketTree.vo.UserVO;
 
 @Repository
 public class UserDAOimpl implements UserDAO {
-	
-	//주입
+
+	// 주입
 	@Autowired
 	SqlSession sqlSession;
-	
-	//userMapper namespace
+
+	// userMapper namespace
 	private static final String namespace = "kr.ac.BucketTree.UserMapper";
-	
-	//이메일로 사용자 조회
+
+	// 이메일로 사용자 조회
 	@Override
 	public UserVO selectByEmail(String email) {
-		
-		return sqlSession.selectOne(namespace+".selectByEmail", email);
+
+		return sqlSession.selectOne(namespace + ".selectByEmail", email);
 	}
 
 	@Override
 	public UserVO selectByIdx(int idx) {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne(namespace+".selectByIdx", idx);
+		return sqlSession.selectOne(namespace + ".selectByIdx", idx);
+	}
+
+	// 임시비밀번호로 비밀번호 변경
+	@Override
+	public void changePassword(HashMap<String, Object> paramMap) {
+		sqlSession.update(namespace + ".updatePassword", paramMap);
 	}
 
 }
