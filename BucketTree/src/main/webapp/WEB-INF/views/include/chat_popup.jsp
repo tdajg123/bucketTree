@@ -19,46 +19,6 @@
 </script>
 
 <div class="popup-box chat-popup" id="qnimate" style="z-index: 99999">
-<<<<<<< HEAD
-	<div class="popup-head">
-		<div class="popup-head-left pull-left">
-			<img src="/BucketTree/images/user1-128x128.jpg"
-				alt="iamgurdeeposahan">
-		</div>
-		<div class="popup-head-right pull-right">
-			<div class="btn-group"></div>
-
-			<!-- Chat Exit Button -->
-			<button data-widget="remove" id="removeClass"
-				class="chat-header-button pull-right" type="button">
-				<i class="glyphicon glyphicon-off"></i>
-			</button>
-		</div>
-	</div>
-	<div class="popup-messages">
-
-		<div class="direct-chat-messages"></div>
-
-	</div>
-	<div class="popup-messages-footer">
-		<div class="filebox">
-			<label for="file"><i class="fa fa-upload"></i></label> <input
-				type="file" id="file"> <input class="upload-name"
-				disable="disable" value="파일 선택" />
-		</div>
-
-		<div class="input-group">
-			<input type="text" name="message" placeholder="Type message..."
-				class="form-control" id="status_message"> <span
-				class="input-group-btn">
-				<button type="button" class="btn btn-success" id="send_button">전송</button>
-			</span>
-		</div>
-
-		<div class="btn-footer"></div>
-	</div>
-</div>
-=======
    <div class="popup-head">
       <div class="popup-head-left pull-left">
          <img src="/BucketTree/images/user1-128x128.jpg"
@@ -97,4 +57,4 @@
       <div class="btn-footer"></div>
    </div>
 </div>
->>>>>>> 5fafddcd064408088009e4f33047430215a8ffd0
+
