@@ -26,8 +26,9 @@
 
 	</div>
 	<div class="popup-messages-footer">
-
-		<textarea id="status_message" placeholder="Type a message..."
+		 <!-- 파일전송 -->
+		 <input id="file" type="file" >
+		 <textarea id="status_message" placeholder="Type a message..."
 			rows="10" cols="40" name="message"></textarea>
 		<!-- sendButton -->
 		<a class="btn btn-default" id="send_button"> <i

@@ -128,6 +128,7 @@ function leadingZeros(n, digits) {
 //웹소켓 연결
   function connect() {
       ws = new SockJS('/BucketTree/Messeneger');
+     
       ws.onopen = function() {
 
           //두달 지난 메세지 삭제하기
@@ -210,12 +211,19 @@ function leadingZeros(n, digits) {
       //스크롤 항상 아래로 유지
       $(".popup-messages").scrollTop($('.direct-chat-messages').height());
   }
+  
+  function sendFile(file){
+	  ws.send(file);
+    
+     
+  }
 
 //웹페이지가 로딩되면 실행되는 의미
 $(function() {
 
 //친구 검색창에 이름을 입력했을때 실행되는 이벤트
 $('.friend_search').keyup(function(event) {
+
 	  //친구 목록삭제
 	   $('.MessenegerFriend').detach();
       //srchType=0
@@ -250,6 +258,14 @@ $('#send_button').click(function() {
         sendMessengerTag(messenger)
         
         $(".popup-messages").scrollTop($('.direct-chat-messages').height());
+        
+        var file = document.getElementById('file').files[0];
+        if(file!=null)
+        	{
+        	 
+        	  sendFile(file);
+        	 }
+
 
 });
 //입력하고 엔터키 눌르면 클릭효과
