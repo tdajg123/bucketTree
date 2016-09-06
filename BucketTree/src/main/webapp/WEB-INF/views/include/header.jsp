@@ -18,6 +18,10 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet"	>
 <!-- sock.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.1/sockjs.min.js"></script>
+
+
+<!-- COMMON -->
+<link href="/BucketTree/css/common.css" rel="stylesheet" type="text/css" />
 <!-- MENU CSS -->
 <link href="/BucketTree/css/menu.css" rel="stylesheet" type="text/css" />
 <!-- LOGIN CSS-->	
@@ -26,11 +30,14 @@
 <link href="/BucketTree/css/sidebar.css" rel="stylesheet" type="text/css" />
 <!-- CHAT_POPUP -->
 <link href="/BucketTree/css/chat_popup.css" rel="stylesheet" type="text/css" />
+<!-- FRIREND LIST -->
+<link href="/BucketTree/css/friendlist.css" rel="stylesheet" type="text/css" />
+
+
 <!-- MENU JS-->
 <script type="text/javascript"	src="/BucketTree/js/menu/modernizr.custom.js"></script>
 <!--MENU -->
 <script src="/BucketTree/js/sidebar/sidebar.js"></script>
 <!-- CHAT-->
 <script type="text/javascript"	src="/BucketTree/js/chat/chat.js"></script>
-<!-- FRIREND LIST -->
-<link href="/BucketTree/css/friendlist.css" rel="stylesheet" type="text/css" />
+

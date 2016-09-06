@@ -2,7 +2,7 @@
 .cbp-spmenu {
 	background: #F8F8F8;
 	position: fixed;
-	overflow:scroll;
+	overflow: scroll;
 }
 
 .cbp-spmenu h3 {
@@ -10,7 +10,7 @@
 	font-size: 1.5em;
 	padding: 5px;
 	margin: 0;
-	font-weight:bold;
+	font-weight: bold;
 }
 
 .cbp-spmenu a {
@@ -30,7 +30,6 @@
 }
 
 /* Orientation-dependent styles for the content of the menu */
-
 .cbp-spmenu-vertical {
 	width: 240px;
 	height: 90%;
@@ -65,7 +64,6 @@
 }
 
 /* Vertical menu that slides from the left or right */
-
 .cbp-spmenu-left {
 	left: -240px;
 }
@@ -80,11 +78,10 @@
 
 .cbp-spmenu-right.cbp-spmenu-open {
 	right: 0px;
-	z-index:1002;
+	z-index: 1002;
 }
 
 /* Horizontal menu that slides from the top or bottom */
-
 .cbp-spmenu-top {
 	top: -150px;
 }
@@ -102,7 +99,6 @@
 }
 
 /* Push classes applied to the body */
-
 .cbp-spmenu-push {
 	overflow-x: hidden;
 	position: relative;
@@ -118,49 +114,37 @@
 }
 
 /* Transitions */
-
-.cbp-spmenu,
-.cbp-spmenu-push {
+.cbp-spmenu, .cbp-spmenu-push {
 	-webkit-transition: all 0.3s ease;
 	-moz-transition: all 0.3s ease;
 	transition: all 0.3s ease;
 }
 
 /* Example media queries */
-
-@media screen and (max-width: 55.1875em){
-
+@media screen and (max-width: 55.1875em) {
 	.cbp-spmenu-horizontal {
 		font-size: 75%;
 		height: 110px;
 	}
-
 	.cbp-spmenu-top {
 		top: -110px;
 	}
-
 	.cbp-spmenu-bottom {
 		bottom: -110px;
 	}
-
 }
 
-@media screen and (max-height: 26.375em){
-
+@media screen and (max-height: 26.375em) {
 	.cbp-spmenu-vertical {
 		font-size: 90%;
 		width: 190px;
 	}
-
-	.cbp-spmenu-left,
-	.cbp-spmenu-push-toleft {
+	.cbp-spmenu-left, .cbp-spmenu-push-toleft {
 		left: -190px;
 	}
-
 	.cbp-spmenu-right {
 		right: -190px;
 	}
-
 	.cbp-spmenu-push-toright {
 		left: 190px;
 	}
@@ -171,136 +155,120 @@
 * 내용
 *
 */
-
 .box {
-    position: relative;
-    border-radius: 3px;
-    background: #ffffff;
-    border-top: 3px solid #48cfc8;
-    margin-bottom: 5px;
-    width: 100%;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+	position: relative;
+	border-radius: 3px;
+	background: #ffffff;
+	border-top: 3px solid #48cfc8;
+	margin-bottom: 5px;
+	width: 100%;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
+
 .box-header.with-border {
-    border-bottom: 1px solid #f4f4f4;
+	border-bottom: 1px solid #f4f4f4;
 }
 
 .box-header {
-    color: #444;
-    display: block;
-    padding: 10px;
-    position: relative;
+	color: #444;
+	display: block;
+	padding: 10px;
+	position: relative;
 }
 
-.box.box-solid.box-default > .box-header {
-    color: #fff;
-    background: #48cfc8;
-    background-color: #48cfc8;
+.box.box-solid.box-default>.box-header {
+	color: #fff;
+	background: #48cfc8;
+	background-color: #48cfc8;
 }
 
 .box-header .box-title {
-    display: inline-block;
-    font-size: 18px;
-    margin: 0;
-    line-height: 1;
-    padding: 10px;
-    font-weight:bold;
+	display: inline-block;
+	font-size: 18px;
+	margin: 0;
+	line-height: 1;
+	padding: 10px;
+	font-weight: bold;
 }
 
 .box-body {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
-    padding: 10px;
-    height:70px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	padding: 10px;
+	height: 70px;
 }
 
 .box-list .box-body {
-     border-bottom: 1px solid #f4f4f4;
+	border-bottom: 1px solid #f4f4f4;
 }
 
 .box-list .box-body:hover {
-     background-color: #f9f9f9;
+	background-color: #f9f9f9;
 }
 
-.box-list > .box-body > .user-image {
-    float: left;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-    margin-top: -2px;
+.box-list>.box-body>.user-image {
+	float: left;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	margin-right: 10px;
+	margin-top: -2px;
 }
 
-.box-list > .box-body > h4{
-	padding:6px;
+.box-list>.box-body>h4 {
+	padding: 6px;
 	font-size: 12px;
 }
+
 .box.box-solid.box-default .box-header input[type="text"] {
-    color: #666;
-    border-top-left-radius: 2px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 2px;
-    box-shadow: none;
-    background-color: #f8f8f8;
-    border: 1px solid transparent;
-    height: 27.4px;
+	color: #666;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 2px;
+	box-shadow: none;
+	background-color: #f8f8f8;
+	border: 1px solid transparent;
+	height: 27.4px;
 }
 
-.box.box-solid.box-default .box-header input[type="text"]:focus{
-    background-color: #fff;
-    color: #666;
+.box.box-solid.box-default .box-header input[type="text"]:focus {
+	background-color: #fff;
+	color: #666;
 }
 
 .box.box-solid.box-default .box-header .btn:focus, .btn:hover {
-    color: #999;
-    text-decoration: none;
+	color: #999;
+	text-decoration: none;
 }
 /*
 * 채팅바 NEW
 * --------------------------------------------------
 */
-h4 > .badge {
-    font-size: 8px;
-    font-weight: 500;
-   padding:2px 5px;
+h4>.badge {
+	font-size: 8px;
+	font-weight: 500;
+	padding: 2px 5px;
 }
 
 .bg-green {
-    background: #48cfc8 !important;
-    border: 1px solid #48cfc8 !important;
-    color: #fff;
-}
-.box-body.addClass  p{
-   font-size:10px;
-   color:#ccc;
-}
-.chat_info{
-   margin-top:10px;
+	background: #48cfc8 !important;
+	border: 1px solid #48cfc8 !important;
+	color: #fff;
 }
 
-.chat_name{
-   font-size:10pt;
+.box-body.addClass  p {
+	font-size: 10px;
+	color: #ccc;
 }
 
-
-/* 다른사람과 대화중이거나 채팅창만 활성화했을경우 새로운 메세지 왔다고 알림  css */
-/* modal */
-.modal{
-	position:absolute;
-	top:200px;
+.chat_info {
+	margin-top: 10px;
 }
 
-.modal-header{
-      background-color: #48cfc8;
-      color:white !important;
-      text-align: center;
-      font-size: 30px;
-      font-weight:bold;
-  }
-  .modal-footer {
-      background-color: #f9f9f9;
-  }
-  
+.chat_name {
+	font-size: 10pt;
+}
+
