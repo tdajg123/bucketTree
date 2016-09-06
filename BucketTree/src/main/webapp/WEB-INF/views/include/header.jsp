@@ -32,6 +32,8 @@
 <link href="/BucketTree/css/chat_popup.css" rel="stylesheet" type="text/css" />
 <!-- FRIREND LIST -->
 <link href="/BucketTree/css/friendlist.css" rel="stylesheet" type="text/css" />
+<!-- BUCKETLIST -->
+<link href="/BucketTree/css/bucketList.css" rel="stylesheet" type="text/css" />
 
 
 <!-- MENU JS-->
@@ -40,4 +42,7 @@
 <script src="/BucketTree/js/sidebar/sidebar.js"></script>
 <!-- CHAT-->
 <script type="text/javascript"	src="/BucketTree/js/chat/chat.js"></script>
-
+<!-- BUCKETLIST -->
+<script type="text/javascript"	src="/BucketTree/js/bucketList/bucketList.js"></script>
+<!-- BUCKETLIST_SELELCTBOX -->
+<script type="text/javascript"	src="/BucketTree/js/bucketList/selectbox.js"></script>
