@@ -34,8 +34,6 @@
 <link href="/BucketTree/css/friendlist.css" rel="stylesheet" type="text/css" />
 <!-- BUCKETLIST -->
 <link href="/BucketTree/css/bucketList.css" rel="stylesheet" type="text/css" />
-<!-- TIMELINE -->
-<link href="/BucketTree/css/timeline.css" rel="stylesheet" type="text/css" />
 
 
 <!-- MENU JS-->
