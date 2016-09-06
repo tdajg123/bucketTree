@@ -45,14 +45,6 @@
 				type="file" id="file"> <input class="upload-name"
 				disable="disable" value="파일 선택" />
 		</div>
-		<!--
-		<textarea  placeholder="Type a message..."
-			rows="10" cols="40" name="message"></textarea>
-		 sendButton 
-		<a class="btn btn-default" > <i
-			class="fa fa-paper-plane-o"></i>
-		</a>-->
-
 
 		<div class="input-group">
 			<input type="text" name="message" placeholder="Type message..."
