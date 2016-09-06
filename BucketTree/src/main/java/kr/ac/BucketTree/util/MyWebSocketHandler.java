@@ -1,10 +1,12 @@
 package kr.ac.BucketTree.util;
 
+import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
+import org.springframework.web.socket.BinaryMessage;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
@@ -29,6 +31,7 @@ public class MyWebSocketHandler extends TextWebSocketHandler {
 		//로그인 유저 웹소켓 연결해제
 		UserVO user = getUser(session);
 		sessions.remove(user.getIdx());
+		System.out.println(user.getIdx()+":종료");
 	}
 
 	@Override
@@ -43,9 +46,6 @@ public class MyWebSocketHandler extends TextWebSocketHandler {
 	@Override
 	public void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
 		MessengerVO messengerVO = MessengerVO.convertMessenger(message.getPayload());
-		
-
-		
 		//실시간채팅
 		WebSocketSession toUser = sessions.get(messengerVO.getTo_user_idx());
 		if(toUser!=null){
@@ -69,6 +69,17 @@ public class MyWebSocketHandler extends TextWebSocketHandler {
 
 	}
 	
+
+
+
+
+	@Override
+	protected void handleBinaryMessage(WebSocketSession arg0, BinaryMessage arg1) {
+		// TODO Auto-generated method stub
+		super.handleBinaryMessage(arg0, arg1);
+
+	}
+
 	//로그인한 유저 정보 꺼내기
 	private UserVO getUser(WebSocketSession session) {
 		Map<String, Object> handshakeAttributes = session.getAttributes();
